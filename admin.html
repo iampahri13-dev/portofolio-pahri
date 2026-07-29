@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin portofolio</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+<h1>Admin portofolio</h1>
+
+
+<h2>Login</h2>
+
+<input id="email" placeholder="Email">
+
+<input id="password" 
+type="password"
+placeholder="Password">
+
+
+<button onclick="login()">
+Login
+</button>
+
+
+<hr>
+
+
+<h2>Upload Project</h2>
+
+
+<input id="title" placeholder="Judul project">
+
+
+<textarea id="desc" placeholder="Deskripsi"></textarea>
+
+
+<input type="file" id="file">
+
+
+<button onclick="uploadProject()">
+Upload
+</button>
+
+<div id="adminProjects"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<script src="supabase.js"></script>
+
+<script src="admin.js"></script>
+
+
+</body>
+
+</html>
