@@ -23,7 +23,9 @@ async function loadProjects() {
 
         <div class="card">
 
-            <img src="${project.image_url}">
+            <span class="fullscreen-icon">⛶</span>
+
+            <img src="${project.image_url}" onclick="openLightbox('${project.image_url}')">
 
             <h3>${project.title}</h3>
 
@@ -39,3 +41,21 @@ async function loadProjects() {
 
 
 loadProjects();
+
+
+
+function openLightbox(image){
+
+    document.getElementById("lightbox").style.display = "flex";
+
+    document.getElementById("lightbox-img").src = image;
+
+}
+
+
+
+function closeLightbox(){
+
+    document.getElementById("lightbox").style.display = "none";
+
+}
