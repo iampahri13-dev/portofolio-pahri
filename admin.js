@@ -1,51 +1,53 @@
-async function login(){
+// ===============================
+// LOGIN ADMIN
+// ===============================
+
+async function login() {
 
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-
 
     const { error } = await supabaseClient.auth.signInWithPassword({
         email,
         password
     });
 
-
-    if(error){
-        alert("Login gagal: " + error.message);
-    } else {
-        alert("Login berhasil");
-        loadAdminProjects();
+    if (error) {
+        alert("Login gagal : " + error.message);
+        return;
     }
+
+    alert("Login berhasil!");
 
 }
 
 
 
-async function uploadProject(){
+// ===============================
+// UPLOAD PROJECT
+// ===============================
+
+async function uploadProject() {
 
     const file = document.getElementById("file").files[0];
 
-    if(!file){
-        alert("Pilih gambar dulu");
+    if (!file) {
+        alert("Pilih gambar terlebih dahulu");
         return;
     }
 
-
     const filename = Date.now() + "-" + file.name;
 
-
-    // Upload gambar ke Storage
+    // Upload ke Storage
     const { error: uploadError } = await supabaseClient
         .storage
         .from("portofolio")
         .upload(filename, file);
 
-
-    if(uploadError){
+    if (uploadError) {
         alert(uploadError.message);
         return;
     }
-
 
     // Ambil URL gambar
     const imageUrl = supabaseClient
@@ -54,66 +56,57 @@ async function uploadProject(){
         .getPublicUrl(filename)
         .data.publicUrl;
 
-
-
-    // Simpan data ke tabel projects
+    // Simpan ke tabel projects
     const { error } = await supabaseClient
         .from("projects")
         .insert({
+
             title: document.getElementById("title").value,
+
             description: document.getElementById("desc").value,
+
+            category: document.getElementById("category").value,
+
             image_url: imageUrl
+
         });
 
-
-
-    if(error){
+    if (error) {
         alert(error.message);
-    } else {
-        alert("Project berhasil diupload");
-        loadAdminProjects();
+        return;
     }
+
+    alert("Project berhasil diupload!");
+
+    document.getElementById("title").value = "";
+    document.getElementById("desc").value = "";
+    document.getElementById("file").value = "";
+
+    loadAdminProjects();
 
 }
 
 
 
+// ===============================
+// HAPUS PROJECT
+// ===============================
 
-async function deleteProject(id, imageUrl){
+async function deleteProject(id) {
 
-    const confirmDelete = confirm("Yakin ingin menghapus project ini?");
+    const yakin = confirm("Yakin ingin menghapus project?");
 
-    if(!confirmDelete) return;
+    if (!yakin) return;
 
-
-    // Ambil nama file dari URL gambar
-    const fileName = imageUrl.split("/").pop();
-
-
-    // Hapus gambar dari Storage
-    const { error: storageError } = await supabaseClient
-        .storage
-        .from("portofolio")
-        .remove([fileName]);
-
-
-    if(storageError){
-        console.log(storageError);
-    }
-
-
-    // Hapus data dari tabel projects
     const { error } = await supabaseClient
         .from("projects")
         .delete()
         .eq("id", id);
 
-
-    if(error){
+    if (error) {
         alert(error.message);
         return;
     }
-
 
     alert("Project berhasil dihapus");
 
@@ -123,25 +116,25 @@ async function deleteProject(id, imageUrl){
 
 
 
+// ===============================
+// LOAD PROJECT ADMIN
+// ===============================
 
-async function loadAdminProjects(){
+async function loadAdminProjects() {
 
-    const {data, error} = await supabaseClient
+    const { data, error } = await supabaseClient
         .from("projects")
         .select("*")
-        .order("created_at", {ascending:false});
+        .order("created_at", { ascending: false });
 
-
-    if(error){
+    if (error) {
         console.log(error);
         return;
     }
 
-
     const box = document.getElementById("adminProjects");
 
     box.innerHTML = "";
-
 
     data.forEach(project => {
 
@@ -155,7 +148,11 @@ async function loadAdminProjects(){
 
             <p>${project.description}</p>
 
-            <button onclick="deleteProject(${project.id}, '${project.image_url}')">
+            <small>Kategori : ${project.category ?? "-"}</small>
+
+            <br><br>
+
+            <button onclick="deleteProject(${project.id})">
                 Hapus
             </button>
 
@@ -166,6 +163,5 @@ async function loadAdminProjects(){
     });
 
 }
-
 
 loadAdminProjects();
