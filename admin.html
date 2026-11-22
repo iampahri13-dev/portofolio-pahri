@@ -1,202 +1,38 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Admin Portfolio</title>
-
-    <link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080e1b">
+  <title>Admin — Fahri Faqih Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
-
-<body>
-
-
-<section class="section">
-
-
-    <h2>
-        Admin Login
-    </h2>
-
-
-    <input 
-    id="email" 
-    type="email" 
-    placeholder="Email">
-
-
-    <br><br>
-
-
-    <input 
-    id="password" 
-    type="password" 
-    placeholder="Password">
-
-
-    <br><br>
-
-
-    <button onclick="login()">
-        Login
-    </button>
-
-
-
-</section>
-
-
-
-
-
-
-
-<section class="section">
-
-
-    <h2>
-        Upload Project
-    </h2>
-
-
-
-    <label>
-        Judul
-    </label>
-
-    <br>
-
-    <input 
-    id="title" 
-    type="text" 
-    placeholder="Judul project">
-
-
-    <br><br>
-
-
-
-
-    <label>
-        Deskripsi
-    </label>
-
-    <br>
-
-    <textarea 
-    id="desc"
-    placeholder="Deskripsi project"></textarea>
-
-
-    <br><br>
-
-
-
-
-
-    <label for="category">
-        Kategori
-    </label>
-
-    <br>
-
-
-    <select id="category">
-
-
-        <option value="Desain">
-            Desain
-        </option>
-
-
-        <option value="Fotografi">
-            Fotografi
-        </option>
-
-
-        <option value="Video">
-            Video
-        </option>
-
-
-    </select>
-
-
-    <br><br>
-
-
-
-
-
-    <label>
-        Pilih Gambar
-    </label>
-
-    <br>
-
-
-    <input 
-    id="file" 
-    type="file">
-
-
-    <br><br>
-
-
-
-    <button onclick="uploadProject()">
-        Upload Project
-    </button>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-<section class="section">
-
-
-    <h2>
-        Daftar Project
-    </h2>
-
-
-    <div id="adminProjects">
-
-        Loading...
-
-    </div>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-
-<script src="supabase.js"></script>
-
-<script src="admin.js"></script>
-
-
+<body class="admin-body">
+  <nav class="navbar admin-nav"><a class="logo" href="index.html"><span class="logo-mark">F.</span><span>FAHRI FAQIH <small> / ADMIN</small></span></a><a href="index.html" class="admin-back">← Lihat website</a></nav>
+  <main class="admin-main">
+    <header class="admin-header"><p class="eyebrow">PORTFOLIO MANAGEMENT</p><h1>Admin <span>dashboard.</span></h1><p>Kelola project yang tampil di halaman portfolio.</p></header>
+    <section class="admin-panel">
+      <div class="admin-panel-heading"><div><span class="admin-step">01</span><h2>Admin login</h2></div><span class="admin-hint">MASUK KE AKUN SUPABASE</span></div>
+      <div class="admin-form-grid"><label>Email<input id="email" type="email" placeholder="admin@email.com" autocomplete="username"></label><label>Password<input id="password" type="password" placeholder="Password" autocomplete="current-password"></label></div>
+      <button class="admin-button" onclick="login()">Login <span>↗</span></button>
+    </section>
+    <section class="admin-panel">
+      <div class="admin-panel-heading"><div><span class="admin-step">02</span><h2>Upload project</h2></div><span class="admin-hint">TAMBAHKAN KARYA BARU</span></div>
+      <div class="admin-form-grid"><label>Judul project<input id="title" type="text" placeholder="Contoh: Editorial Poster"></label><label>Kategori<select id="category"><option value="Desain">Desain</option><option value="Fotografi">Fotografi</option><option value="Video">Video</option></select></label></div>
+      <label class="admin-full-label">Deskripsi<textarea id="desc" rows="4" placeholder="Ceritakan singkat tentang project ini..."></textarea></label>
+      <label class="admin-full-label">Gambar project<input id="file" type="file" accept="image/*"></label>
+      <p class="admin-note">Gunakan gambar dengan kualitas baik. Format gambar umum seperti JPG, PNG, atau WebP didukung.</p>
+      <button class="admin-button" onclick="uploadProject()">Upload project <span>↑</span></button>
+    </section>
+    <section class="admin-panel">
+      <div class="admin-panel-heading"><div><span class="admin-step">03</span><h2>Daftar project</h2></div><span class="admin-hint">PROJECT TERBARU</span></div>
+      <div id="adminProjects" class="admin-projects">Memuat project...</div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="admin.js"></script>
 </body>
-
-
 </html>

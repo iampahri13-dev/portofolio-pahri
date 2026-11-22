@@ -1,289 +1,95 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Fahri Faqih | Portfolio</title>
-
-    <link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080e1b">
+  <meta name="description" content="Portfolio Fahri Faqih — Visual Designer & Photographer. Kumpulan karya desain, fotografi, dan media visual.">
+  <title>Fahri Faqih — Visual Designer & Photographer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<!-- NAVBAR -->
-
-<nav class="navbar">
-
-    <div class="logo">
-        Fahri Faqih
-    </div>
-
+  <div class="page-glow glow-one"></div><div class="page-glow glow-two"></div>
+  <nav class="navbar">
+    <a class="logo" href="#home"><span class="logo-mark">F.</span><span>FAHRI FAQIH</span></a>
+    <button class="menu-toggle" aria-label="Buka navigasi" aria-expanded="false"><span></span><span></span></button>
     <ul class="nav-links">
-
-        <li><a href="#home">Home</a></li>
-
-        <li><a href="#about">About</a></li>
-
-        <li><a href="#skills">Skills</a></li>
-
-        <li><a href="#portfolio">Portfolio</a></li>
-
-        <li><a href="#contact">Contact</a></li>
-
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#skills" class="nav-link">Expertise</a></li>
+      <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+      <li><a href="#contact" class="nav-contact">Let’s Talk <span>↗</span></a></li>
     </ul>
+  </nav>
 
-    <div class="menu-toggle">
-        ☰
-    </div>
-
-</nav>
-
-
-
-
-
-<!-- HERO -->
-
-<section id="home" class="hero">
-
-    <div class="hero-content">
-
-        <h1>
-            Fahri Faqih Ari Fadhel
-        </h1>
-
-        <h2>
-            I'm a Visual Designer & Photographer
-        </h2>
-
-        <p>
-            Saya membuat karya kreatif melalui desain,
-            fotografi, dan media visual.
-        </p>
-
-        <a href="#portfolio" class="btn">
-            Lihat Portfolio
-        </a>
-
-    </div>
-
-</section>
-
-
-
-
-
-<!-- ABOUT -->
-
-<section id="about" class="section">
-
-    <h2>
-        About Me
-    </h2>
-
-    <p>
-        Saya adalah siswa Desain Komunikasi Visual
-        yang memiliki minat dalam desain grafis,
-        fotografi, dan industri kreatif.
-
-        Saya suka membuat karya visual yang menarik
-        dan memiliki pesan.
-    </p>
-
-</section>
-
-
-
-
-
-<!-- SKILLS -->
-
-<section id="skills" class="section">
-
-    <h2>
-        Skills
-    </h2>
-
-    <div class="skills-container">
-
-        <div class="skill-card">
-            🎨
-            <h3>Graphic Design</h3>
+  <main>
+    <section id="home" class="hero section-wrap">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="status-dot"></span> AVAILABLE FOR CREATIVE PROJECTS</div>
+        <p class="hero-kicker">HALO, SAYA</p>
+        <h1>Fahri Faqih<br><span>Ari Fadhel.</span></h1>
+        <h2>Visual Designer <i>&</i> Photographer</h2>
+        <p class="hero-description">Saya menciptakan karya visual yang memadukan ide, cerita, dan detail. Berfokus pada desain grafis, fotografi, serta eksplorasi visual.</p>
+        <div class="hero-actions">
+          <a href="#portfolio" class="btn btn-primary">Jelajahi Karya <span>↗</span></a>
+          <a href="#about" class="text-link">Kenali saya <span>↓</span></a>
         </div>
-
-        <div class="skill-card">
-            📷
-            <h3>Photography</h3>
-        </div>
-
-        <div class="skill-card">
-            🖨️
-            <h3>Printing Design</h3>
-        </div>
-
-        <div class="skill-card">
-            🎬
-            <h3>Video Editing</h3>
-        </div>
-
-    </div>
-
-</section>
-
-
-
-
-
-<!-- PORTFOLIO -->
-
-<section id="portfolio" class="section">
-
-    <h2>
-        My Portfolio
-    </h2>
-
-    <div class="filter">
-
-        <button class="active" onclick="filterProjects('Semua')">
-            Semua
-        </button>
-
-        <button onclick="filterProjects('Desain')">
-            Desain
-        </button>
-
-        <button onclick="filterProjects('Fotografi')">
-            Fotografi
-        </button>
-
-        <button onclick="filterProjects('Video')">
-            Video
-        </button>
-
-    </div>
-
-
-    <div id="projects">
-        Loading...
-    </div>
-
-</section>
-
-
-
-
-
-<!-- CONTACT -->
-
-<section id="contact" class="section">
-
-    <h2>
-        Contact
-    </h2>
-
-
-    <div class="contact-container">
-
-
-        <a href="https://instagram.com/fahrifq_" target="_blank" class="contact-card">
-
-            📷
-
-            <span>
-                Instagram
-            </span>
-
-            <small>
-                @fahrifq_
-            </small>
-
-        </a>
-
-
-
-        <a href="mailto:iampahri13@gmail.com" class="contact-card">
-
-            ✉️
-
-            <span>
-                Email
-            </span>
-
-            <small>
-                iampahri13@gmail.com
-            </small>
-
-        </a>
-
-
-
-        <a href="https://wa.me/6285113652711" target="_blank" class="contact-card">
-
-            💬
-
-            <span>
-                WhatsApp
-            </span>
-
-            <small>
-                085113652711
-            </small>
-
-        </a>
-
-
-    </div>
-
-
-</section>
-
-
-
-
-
-<!-- LIGHTBOX -->
-
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-
-    <span class="close">
-        ×
-    </span>
-
-    <img id="lightbox-img">
-
-</div>
-
-
-
-
-
-<!-- SUPABASE -->
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-
-<script src="supabase.js"></script>
-
-<script src="script.js"></script>
-
-
-
-
-
-<!-- FOOTER -->
-
-<footer>
-
-    <p>
-        © 2026 Fahri Faqih. All Rights Reserved.
-    </p>
-
-</footer>
-
-
+        <div class="hero-meta"><span>BASED IN INDONESIA</span><span class="meta-line"></span><span>DESIGN · PHOTO · VISUAL</span></div>
+      </div>
+      <div class="hero-art" aria-label="Dekorasi visual portfolio">
+        <div class="art-orbit orbit-a"></div><div class="art-orbit orbit-b"></div>
+        <div class="art-card card-back"><span>VISUAL<br>STORYTELLING</span><b>02 / 06</b></div>
+        <div class="art-card card-front"><div class="art-cross">✳</div><span class="art-small">CREATIVE<br>PORTFOLIO</span><strong>MAKE<br>IT<br><em>MATTER.</em></strong><div class="art-bottom"><span>FF — 2026</span><span>✦</span></div></div>
+        <div class="art-caption">SELECTED WORKS <span>✳</span></div>
+      </div>
+      <a class="scroll-cue" href="#about"><span></span> SCROLL TO EXPLORE</a>
+    </section>
+
+    <section id="about" class="section-wrap content-section">
+      <div class="section-heading"><p class="eyebrow">01 / ABOUT ME</p><h2>Ide yang baik,<br><span>visual yang bermakna.</span></h2></div>
+      <div class="about-grid">
+        <p class="about-lead">Saya adalah siswa Desain Komunikasi Visual yang tertarik pada dunia desain grafis, fotografi, dan industri kreatif.</p>
+        <div class="about-detail"><p>Saya senang mengeksplorasi cara menyampaikan pesan melalui visual yang menarik, rapi, dan memiliki karakter. Bagi saya, setiap karya punya cerita yang layak untuk ditampilkan.</p><a href="#contact" class="inline-link">Mari terhubung <span>↗</span></a></div>
+      </div>
+    </section>
+
+    <section id="skills" class="section-wrap content-section">
+      <div class="section-heading row-heading"><div><p class="eyebrow">02 / WHAT I DO</p><h2>Creative <span>expertise.</span></h2></div><p class="heading-note">Hal yang saya sukai<br>dan terus kembangkan.</p></div>
+      <div class="skills-grid">
+        <article class="skill-card"><span class="skill-number">01</span><div class="skill-icon">✳</div><h3>Graphic Design</h3><p>Mengolah ide menjadi komposisi visual yang komunikatif dan berkarakter.</p><span class="skill-arrow">↗</span></article>
+        <article class="skill-card"><span class="skill-number">02</span><div class="skill-icon">◉</div><h3>Photography</h3><p>Merekam momen dan sudut pandang melalui pendekatan visual yang kuat.</p><span class="skill-arrow">↗</span></article>
+        <article class="skill-card"><span class="skill-number">03</span><div class="skill-icon">▤</div><h3>Printing Design</h3><p>Menyiapkan desain untuk kebutuhan cetak dengan perhatian pada detail.</p><span class="skill-arrow">↗</span></article>
+        <article class="skill-card"><span class="skill-number">04</span><div class="skill-icon">▷</div><h3>Video Editing</h3><p>Menyusun elemen visual menjadi cerita yang lebih hidup dan terarah.</p><span class="skill-arrow">↗</span></article>
+      </div>
+    </section>
+
+    <section id="portfolio" class="section-wrap content-section portfolio-section">
+      <div class="section-heading row-heading"><div><p class="eyebrow">03 / SELECTED WORKS</p><h2>My <span>portfolio.</span></h2></div><p class="heading-note">Kumpulan proses, eksplorasi,<br>dan hasil karya visual.</p></div>
+      <div class="portfolio-toolbar"><p>SELECTED PROJECTS <span id="projectCount">—</span></p><div class="filter" role="group" aria-label="Filter project">
+        <button class="active" data-category="Semua">All works</button><button data-category="Desain">Design</button><button data-category="Fotografi">Photography</button><button data-category="Video">Video</button>
+      </div></div>
+      <div id="projects" class="projects-grid"><div class="loading-state"><span class="loader"></span><p>Menyiapkan karya...</p></div></div>
+    </section>
+
+    <section id="contact" class="section-wrap contact-section">
+      <p class="eyebrow">04 / GET IN TOUCH</p><h2>Punya ide menarik?<br><span>Mari wujudkan bersama.</span></h2>
+      <p class="contact-intro">Terbuka untuk obrolan, kolaborasi, maupun project kreatif.</p>
+      <div class="contact-links">
+        <a href="mailto:iampahri13@gmail.com" class="contact-link"><span class="contact-icon">✉</span><span><small>EMAIL</small><strong>iampahri13@gmail.com</strong></span><b>↗</b></a>
+        <a href="https://instagram.com/fahrifq_" target="_blank" rel="noopener noreferrer" class="contact-link"><span class="contact-icon">◎</span><span><small>INSTAGRAM</small><strong>@fahrifq_</strong></span><b>↗</b></a>
+        <a href="https://wa.me/6285113652711" target="_blank" rel="noopener noreferrer" class="contact-link"><span class="contact-icon">◌</span><span><small>WHATSAPP</small><strong>0851 1365 2711</strong></span><b>↗</b></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><a class="logo" href="#home"><span class="logo-mark">F.</span><span>FAHRI FAQIH</span></a><p>Designed with intention. © <span id="year">2026</span> Fahri Faqih.</p><a href="#home" class="back-top">BACK TO TOP ↑</a></footer>
+  <div id="lightbox" class="lightbox" aria-hidden="true"><button class="lightbox-close" aria-label="Tutup gambar">×</button><img id="lightbox-img" alt="Preview project"><p id="lightbox-caption"></p></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="script.js"></script>
 </body>
-
 </html>
